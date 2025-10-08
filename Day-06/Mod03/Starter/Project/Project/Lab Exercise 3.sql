@@ -10,33 +10,49 @@ GO
 ---------------------------------------------------------------------
 -- Task 1
 -- 
--- Write a SELECT statement to return the contactname and contacttitle columns from the Sales.Customers table, assigning “C” as the table alias. Use the table alias C to prefix the names of the two needed columns in the SELECT list. The benefit of using table aliases will become clearer in future modules when topics such as joins and subqueries will be introduced. 
+-- Write a SELECT statement to return the contactname and contacttitle columns from the Sales.Customers table, assigning “C” as the table alias. 
+--Use the table alias C to prefix the names of the 
+--two needed columns in the SELECT list. 
+--The benefit of using table aliases will become clearer in future modules when topics such as joins and subqueries will be introduced. 
 --
 -- Execute the written statement and compare the result that you got with the recommended result shown in the file Lab Exercise 3 - Task 1 Result.txt.
 ---------------------------------------------------------------------
-
+SELECT c.contactname, c.contacttitle FROM SALES.Customers as c
 
 
 
 ---------------------------------------------------------------------
 -- Task 2
 -- 
--- Write a SELECT statement to return the contactname, contacttitle, and companyname columns from the Sales.Customers table. Assign these columns with the aliases Name, Title, and Company Name, respectively, in order to return more human-friendly column titles for reporting purposes.
+-- Write a SELECT statement to return the contactname, contacttitle, and companyname columns from the Sales.Customers table. 
+--Assign these columns with the aliases Name, Title, and Company Name, respectively, in order to return more human-friendly column titles for reporting purposes.
 --
 -- Execute the written statement and compare the results that you got with the desired results shown in the file Lab Exercise 3 - Task 2 Result.txt. Notice specifically the titles of the columns in the desired output.
 ---------------------------------------------------------------------
 
+select 
+	contactname as Name, 
+	contacttitle as Title, 
+	companyname  as "Company Name"
+from Sales.Customers
 
-
+select 
+	contactname as Name, 
+	contacttitle as Title, 
+	companyname  as [Company Name]
+from Sales.Customers
 
 ---------------------------------------------------------------------
 -- Task 3
 -- 
--- Write a query to display the productname column from the Production.Products table using “P” as the table alias and “Product Name” as the column alias.
+-- Write a query to display the productname column 
+--from the Production.Products table using “P” as 
+--the table alias and 
+--“Product Name” as the column alias.
 --
 -- Execute the written statement and compare the results that you got with the desired results shown in the file Lab Exercise 3 - Task 3 Result.txt.
 ---------------------------------------------------------------------
-
+select p.productname as "Product Name" from Production.Products as p
 
 
 
@@ -52,6 +68,13 @@ GO
 -- Why did the query return only one column? What was the title of the column in the output? What is the best practice when using aliases for columns to avoid such errors?
 ---------------------------------------------------------------------
 
-SELECT city country
-FROM Sales.Customers;
+SELECT c.
+FROM Sales.Customers c;
 
+select e.lastname, e.title from tsql.HR.Employees  e
+
+select * from [Sales].[Customers] c
+
+select * from [Production].[Suppliers]
+
+select * from [hr].[dbo].[employees]

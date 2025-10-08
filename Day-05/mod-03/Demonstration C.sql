@@ -17,7 +17,11 @@ FROM salesLT.Customer
 -- Step 3: Column Aliases
 -- Select and execute the following query to show the use of column aliases
 -- to label calculated columns in the SELECT clause
-SELECT ProductID, Name, ListPrice, (ListPrice * 1.13) AS MarkUp
+SELECT 
+	ProductID, 
+	Name, 
+	ListPrice, 
+	(ListPrice * 1.13) AS MarkUp
 FROM SalesLT.Product;
 
 

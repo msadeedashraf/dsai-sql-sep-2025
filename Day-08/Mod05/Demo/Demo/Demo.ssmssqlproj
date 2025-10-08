@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Project">
+<SqlWorkbenchSqlProject xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="Demo">
   <Items>
     <LogicalFolder Name="Connections" Type="2" Sorted="true">
       <Items>
         <ConnectionNode Name="SADEED\SQLEXPRESS:sadeed\sadeedashraf">
-          <Created>2025-10-06T19:54:08.1192163-04:00</Created>
+          <Created>2025-10-08T18:20:30.0271037-04:00</Created>
           <Type>SQL</Type>
           <Server>SADEED\SQLEXPRESS</Server>
           <UserName />
@@ -22,29 +22,29 @@
     </LogicalFolder>
     <LogicalFolder Name="Queries" Type="0" Sorted="true">
       <Items>
-        <FileNode Name="Lab Exercise 1.sql">
+        <FileNode Name="11 - Demonstration A.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SADEED\SQLEXPRESS:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>SADEED\SQLEXPRESS</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>Lab Exercise 1.sql</FullPath>
+          <FullPath>11 - Demonstration A.sql</FullPath>
         </FileNode>
-        <FileNode Name="Lab Exercise 2.sql">
+        <FileNode Name="21 - Demonstration B.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SADEED\SQLEXPRESS:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>SADEED\SQLEXPRESS</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>Lab Exercise 2.sql</FullPath>
+          <FullPath>21 - Demonstration B.sql</FullPath>
         </FileNode>
-        <FileNode Name="Lab Exercise 3.sql">
+        <FileNode Name="31 - Demonstration C.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SADEED\SQLEXPRESS:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>SADEED\SQLEXPRESS</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>Lab Exercise 3.sql</FullPath>
+          <FullPath>31 - Demonstration C.sql</FullPath>
         </FileNode>
-        <FileNode Name="Lab Exercise 4.sql">
+        <FileNode Name="41 - Demonstration D.sql">
           <AssociatedConnectionMoniker>8c91a03d-f9b4-46c0-a305-b5dcc79ff907:SADEED\SQLEXPRESS:True</AssociatedConnectionMoniker>
           <AssociatedConnSrvName>SADEED\SQLEXPRESS</AssociatedConnSrvName>
           <AssociatedConnUserName />
-          <FullPath>Lab Exercise 4.sql</FullPath>
+          <FullPath>41 - Demonstration D.sql</FullPath>
         </FileNode>
       </Items>
     </LogicalFolder>

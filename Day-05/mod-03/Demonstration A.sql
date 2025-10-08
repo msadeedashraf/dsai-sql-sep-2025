@@ -78,7 +78,8 @@ FROM SalesLT.Product;
 -- Step 5: Simple SELECT query
 -- Select and execute the following query to retrieve only Title, FirstName,
 -- LastName, CompanyName, EmailAddress columns from the SalesLT.customer table
-SELECT Title, FirstName, LastName, CompanyName, EmailAddress
+SELECT 
+Title, FirstName, LastName, CompanyName, EmailAddress
 FROM SalesLT.customer;
 
 

@@ -29,8 +29,22 @@ GO
 -- Execute the written statement and compare the results that you got with the desired results shown in the file Lab Exercise 1 - Task 2 Result.txt.
 ---------------------------------------------------------------------
 
+select * from Sales.Customers
 
+select * from [Sales].[Customers]
 
+SELECT TOP (1000) [custid]
+      ,[companyname]
+      ,[contactname]
+      ,[contacttitle]
+      ,[address]
+      ,[city]
+      ,[region]
+      ,[postalcode]
+      ,[country]
+      ,[phone]
+      ,[fax]
+  FROM [TSQL].[Sales].[Customers]
 
 ---------------------------------------------------------------------
 -- Task 3
@@ -43,4 +57,6 @@ GO
 --
 -- What is the number of rows affected by the last query? (Tip: Because you are issuing a SELECT statement against the whole table, the number of rows will be the same as number of rows for the whole Sales.Customer table.)
 ---------------------------------------------------------------------
+use TSQL
 
+select  contactname, address, postalcode, city, country  from Sales.Customers

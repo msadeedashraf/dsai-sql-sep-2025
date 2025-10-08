@@ -14,7 +14,8 @@ GO
 --
 -- Execute the written statement and compare the results that you got with the desired results shown in the file Lab Exercise 2 - Task 1 Result.txt.
 ---------------------------------------------------------------------
-
+SELECT C.country FROM Sales.Customers C
+--91 rOWS
 
 
 
@@ -28,10 +29,8 @@ GO
 --  How many rows did the query in Task 2 return?
 ---------------------------------------------------------------------
 
-
-
-
-
+SELECT DISTINCT C.country FROM Sales.Customers C
+--21 rOWS
 
 ---------------------------------------------------------------------
 -- Under which circumstances do the following queries against the Sales.Customers table return the same result?
@@ -43,4 +42,5 @@ SELECT city, region
 FROM Sales.Customers;
 
 SELECT DISTINCT city, region 
-FROM Sales.Customers;
+FROM Sales.Customers
+ORDER BY 1;
