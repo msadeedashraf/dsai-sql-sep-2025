@@ -13,6 +13,10 @@ FROM Production.Categories AS c
 JOIN Production.Products AS p
 ON c.categoryid = p.categoryid;
 
+
+select * from Production.Categories AS c
+select distinct categoryid from Production.Products AS p
+
 -- Step 3: Join 2 tables
 -- Select and execute the following query
 -- to demonstrate a two-table inner composite join.

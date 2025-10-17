@@ -32,12 +32,92 @@ where e.department_id = 6
 
 select * from [hr].[dbo].[departments]
 
+--SQL-89
+select * from	[hr].[dbo].[employees] e , 
+				[hr].[dbo].[departments] d
+where e.department_id = d.department_id
+and d.department_name = 'Sales'
+
+--SQL-92
+select * from	[hr].[dbo].[employees] e join  
+				[hr].[dbo].[departments] d
+on e.department_id = d.department_id
+where
+d.department_name = 'Sales'
+
+select distinct e.department_id from	[hr].[dbo].[employees] e
+where e.job_id = 9
+
+
+select e.* 
+	from	
+		[hr].[dbo].[employees] e 
+		inner join 
+		[hr].[dbo].[departments] d 
+	on	
+		e.department_id = d.department_id
+
+select * from [hr].[dbo].[jobs] j 
+select distinct e.job_id from [hr].[dbo].[employees] e 
+
+select e.* 
+	from	
+		[hr].[dbo].[employees] e 
+		right outer join  
+		[hr].[dbo].[jobs] j 
+	on	
+		e.job_id= j.job_id
+
+
+select e.* 
+	from	
+		[hr].[dbo].[employees] e 
+	where e.job_id = 6
+
+
+select * from hr.dbo.departments
+
+
+select * from [hr].[dbo].[jobs]
+
+select * from	[hr].[dbo].[employees] e join  
+				[hr].[dbo].[jobs] j
+on e.job_id = j.job_id
+where
+j.job_title in( 'Programmer', 'Marketing Manager' )
+
+
+
+SELECT e.employee_id,
+       e.first_name,
+       e.last_name,
+       j.job_title      
+FROM	[hr].[dbo].[employees] AS e
+	JOIN [hr].[dbo].[jobs] AS j
+ON e.job_id = j.job_id
+WHERE j.job_title = 'Accountant';
+ 
+
+
+
+
 
 select e.* from [hr].[dbo].[employees] as e 
 				join 
 				[hr].[dbo].[departments] as d
 on e.department_id = d.department_id
 where d.department_name = 'Marketing'
+
+select * from hr.dbo.employees
+
+select e.* 
+	from	
+		[hr].[dbo].[employees] e 
+		inner join 
+		[hr].[dbo].[departments] d 
+	on	
+		e.department_id = d.department_id
+
 
 
 select * from [hr].[dbo].[jobs]
