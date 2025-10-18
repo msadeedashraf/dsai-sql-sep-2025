@@ -26,6 +26,13 @@ FROM Sales.Customers AS c
 JOIN HR.Employees AS e 
 ON c.city = e.city AND c.country = e.country;
 
+
+SELECT distinct e.firstname, e.city, e.country
+FROM Sales.Customers AS c
+JOIN HR.Employees AS e 
+ON c.city = e.city AND c.country = e.country;
+
+
 -- Step 4: Join 2 tables
 -- Select and execute the following query
 -- to demonstrate a two-table inner composite join.
@@ -42,20 +49,34 @@ ON c.city = e.city AND c.country = e.country;
 -- from a third table have been commented out to join
 -- the first two tables only
 -- 830 rows will be returned
-SELECT c.custid, c.companyname, o.orderid, o.orderdate-- , od.productid, od.qty
+select * from  Sales.Customers
+
+SELECT c.custid, c.companyname, o.orderid, o.orderdate
+, p.productname, od.qty , od.unitprice  
 FROM Sales.Customers AS c 
 JOIN Sales.Orders AS o
-ON c.custid = o.custid;
--- JOIN Sales.OrderDetails od
--- ON o.orderid = od.orderid;
+ON c.custid = o.custid
+JOIN Sales.OrderDetails as od
+ON o.orderid = od.orderid
+join [Production].[Products] as p
+on od.productid = p.productid
+where c.city = 'Berlin'
+
 
 -- Step 6: Join 3 tables
 -- Select and execute the following query
 -- to demonstrate a three-table inner join.
 -- 2155 rows will be returned. Why?
-SELECT c.custid, c.companyname, o.orderid, o.orderdate, od.productid, od.qty
+SELECT c.custid, c.companyname, o.orderid, o.orderdate
+--, od.productid, od.qty
 FROM Sales.Customers AS c 
 JOIN Sales.Orders AS o
 ON c.custid = o.custid
 JOIN Sales.OrderDetails od
 ON o.orderid = od.orderid;
+
+select count(*) from  Sales.Customers AS c 
+select count(*) from  Sales.Orders AS o
+select count(*) from  Sales.OrderDetails od
+
+

@@ -1,12 +1,16 @@
 --  Demonstration C
 
 --  Step 1: Open a new query window to the AdventureWorks database
-USE AdventureWorks;
+USE AdventureWorks2019;
 GO
 
 -- Step 2: Join 2 tables
 -- Select and execute the following query
 -- to show only matching customers and orders
+
+select Count(*) from Sales.Customer c --19820 -701 = 19119
+select Count(distinct soh.CustomerID) from Sales.SalesOrderHeader soh --31465
+
 SELECT c.CustomerID, soh.SalesOrderID
 FROM Sales.Customer c JOIN Sales.SalesOrderHeader soh
 ON c.CustomerID = soh.CustomerID;
@@ -19,6 +23,13 @@ SELECT *
 FROM Sales.Customer c LEFT OUTER JOIN Sales.SalesOrderHeader soh
 ON c.CustomerID = soh.CustomerID;
 -- (32166 row(s) affected)
+
+SELECT c.*
+FROM Sales.Customer c LEFT OUTER JOIN Sales.SalesOrderHeader soh
+ON c.CustomerID = soh.CustomerID
+where soh.CustomerID is null 
+
+
 
 -- Step 4: Join 2 tables
 -- Select and execute the following query to show
