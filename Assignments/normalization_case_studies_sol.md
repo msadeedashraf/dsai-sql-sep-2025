@@ -82,6 +82,18 @@ WHERE s.StudentName = 'Emily Carter';
 
 ### Table Structure
 
+- Create the Database SchoolDB
+
+```
+create database schooldb;
+go;
+
+use schooldb;
+go;
+
+```
+
+
 - Step 1 (1NF staging)
 
 ```
