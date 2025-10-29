@@ -86,10 +86,10 @@ WHERE s.StudentName = 'Emily Carter';
 
 ```
 create database schooldb;
-go;
+go
 
 use schooldb;
-go;
+go
 
 ```
 
