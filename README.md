@@ -68,3 +68,14 @@ or
 ### Date Formats
 
 [Link](https://learn.microsoft.com/en-us/sql/t-sql/functions/cast-and-convert-transact-sql?view=sql-server-ver17)
+
+### Resources
+
+[Mastery With SQL](https://www.masterywithsql.com/)
+
+[TSQL Tips and Tricks](https://www.mssqltips.com/sqlservertip/6727/tsql-tips-tricks/)
+
+[SQL tips for beginners](https://dev.to/rap2hpoutre/sql-tips-for-beginners-what-i-learned-after-15-years-of-occasionally-writing-queries-and-schemas-as-a-fullstack-dev-2ide)
+
+### Normalization
+
