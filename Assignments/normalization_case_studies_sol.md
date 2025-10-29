@@ -80,6 +80,97 @@ JOIN Instructors i ON c.InstructorID = i.InstructorID
 WHERE s.StudentName = 'Emily Carter';
 ```
 
+### Table Structure
+
+- Step 1 (1NF staging)
+
+```
+-- 1NF staging: one row per student–course (still denormalized attributes kept)
+
+IF OBJECT_ID('dbo.Enrollment_1NF','U') IS NOT NULL DROP TABLE dbo.Enrollment_1NF;
+CREATE TABLE dbo.Enrollment_1NF
+(
+    StudentID     varchar(20) NOT NULL,
+    StudentName   varchar(100) NOT NULL,
+    StudentPhone  varchar(25)  NULL,
+    CourseCode    varchar(20)  NOT NULL,
+    InstructorName  varchar(100) NOT NULL,
+    InstructorEmail varchar(200) NOT NULL,
+    Grade         varchar(5)   NULL
+);
+
+INSERT INTO dbo.Enrollment_1NF (StudentID,StudentName,StudentPhone,CourseCode,InstructorName,InstructorEmail,Grade)
+VALUES
+('S101','Emily Carter','416-555-8834','Math101','Mr. Lewis','lewis@school.ca','A'),
+('S101','Emily Carter','416-555-8834','Bio201','Dr. Brown','brown@school.ca','B+');
+
+```
+- Steps 2–3 (2NF → 3NF final schema)
+
+```
+-- Drop if rerun
+IF OBJECT_ID('dbo.Enrollments','U') IS NOT NULL DROP TABLE dbo.Enrollments;
+IF OBJECT_ID('dbo.Courses','U')    IS NOT NULL DROP TABLE dbo.Courses;
+IF OBJECT_ID('dbo.Instructors','U') IS NOT NULL DROP TABLE dbo.Instructors;
+IF OBJECT_ID('dbo.Students','U')   IS NOT NULL DROP TABLE dbo.Students;
+
+CREATE TABLE dbo.Students
+(
+    StudentID     varchar(20)  NOT NULL PRIMARY KEY,
+    StudentName   varchar(100) NOT NULL,
+    StudentPhone  varchar(25)  NULL
+);
+
+CREATE TABLE dbo.Instructors
+(
+    InstructorID    int IDENTITY(1,1) PRIMARY KEY,
+    InstructorName  varchar(100) NOT NULL,
+    InstructorEmail varchar(200) NOT NULL UNIQUE
+);
+
+CREATE TABLE dbo.Courses
+(
+    CourseCode    varchar(20)  NOT NULL PRIMARY KEY,
+    CourseName    varchar(100) NOT NULL,
+    InstructorID  int          NOT NULL
+        CONSTRAINT FK_Courses_Instructor
+        REFERENCES dbo.Instructors(InstructorID)
+);
+
+CREATE TABLE dbo.Enrollments
+(
+    StudentID   varchar(20) NOT NULL
+        CONSTRAINT FK_Enroll_Student REFERENCES dbo.Students(StudentID),
+    CourseCode  varchar(20) NOT NULL
+        CONSTRAINT FK_Enroll_Course  REFERENCES dbo.Courses(CourseCode),
+    Grade       varchar(5)  NULL,
+    CONSTRAINT PK_Enrollments PRIMARY KEY (StudentID, CourseCode)
+);
+
+```
+
+- Sample data
+
+```
+INSERT INTO dbo.Students (StudentID, StudentName, StudentPhone) VALUES
+('S101','Emily Carter','416-555-8834'),
+('S102','Liam Johnson','647-555-7711');
+
+INSERT INTO dbo.Instructors (InstructorName, InstructorEmail) VALUES
+('Mr. Lewis','lewis@school.ca'),
+('Dr. Brown','brown@school.ca');
+
+INSERT INTO dbo.Courses (CourseCode, CourseName, InstructorID) VALUES
+('Math101','Mathematics', 1),
+('Bio201' ,'Biology',     2);
+
+INSERT INTO dbo.Enrollments (StudentID,CourseCode,Grade) VALUES
+('S101','Math101','A'),
+('S101','Bio201','B+'),
+('S102','Math101','B');
+
+```
+
 ---
 
 ## 🏢 Case Study 2 – Employee Project Tracking
